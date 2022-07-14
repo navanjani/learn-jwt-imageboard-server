@@ -1,17 +1,15 @@
 const express = require("express");
-/**
- * Import seperated routes
- * Eg: const userRouter = require("./routes/userRouter");
- */
+const jsonParser = express.json();
+
+const imageRouter = require("./routes/image");
+const userRouter = require("./routes/user");
 
 const app = express();
 const PORT = 4000;
 
-app.use(express.json());
+app.use(jsonParser);
 
-/**
- * Add seperated routes to the express
- * Eg: app.use(userRouter);
- */
+app.use(userRouter);
+app.use(imageRouter);
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));

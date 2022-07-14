@@ -21,7 +21,7 @@ router.post("/users/signup", async (req, res, next) => {
     } else {
       const newUser = await User.create({
         email,
-        password: bctypt.hashSync(password, 10),
+        password: bcrypt.hashSync(password, 10),
         fullname,
       });
       res.json(newUser);

@@ -12,6 +12,6 @@ app.use(jsonParser);
 
 app.use(userRouter);
 app.use(imageRouter);
-// app.use(authRouter);
+app.use(authRouter);
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));

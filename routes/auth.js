@@ -4,7 +4,6 @@ const User = require("../models").user;
 const bcrypt = require("bcrypt");
 
 const router = new Router();
-
 router.post("/auth/login", async (req, res, next) => {
   try {
     //   get email,password from body
@@ -14,14 +13,14 @@ router.post("/auth/login", async (req, res, next) => {
     }
     // finduser with this email
 
-    const use = await User.findOne({
+    const theUser = await User.findOne({
       where: { email: email },
     });
-    if (!User) return res.status(400).send("wrong credentials!");
+    if (!theUser) return res.status(400).send("wrong credentials!");
     // compare passwords
-    const samePasswords = bcrypt.compareSync(password, User.password);
+    const samePasswords = bcrypt.compareSync(password, theUser.password);
     if (samePasswords) {
-      const token = toJWT({ UserId: User.id });
+      const token = toJWT({ UserId: theUser.id });
       console.log("All good!");
       res.send({ message: "Welcome!! you are logged in", token });
     } else {

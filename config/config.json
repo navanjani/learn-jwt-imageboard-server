@@ -1,6 +1,6 @@
 {
   "development": {
-    "url": "",
+    "url": "postgres://sdkromcb:VrACF9D2iml0qGtLNhSvV2RpGSnBsKcD@abul.db.elephantsql.com/sdkromcb",
     "dialect": "postgres"
   }
 }

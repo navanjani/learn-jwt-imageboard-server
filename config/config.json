@@ -1,0 +1,6 @@
+{
+  "development": {
+    "url": "",
+    "dialect": "postgres"
+  }
+}
